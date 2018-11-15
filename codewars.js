@@ -4,10 +4,10 @@
 // If a value is present in b, all of its occurrences must be removed from the other:
 // array_diff([1,2,2,2,3],[2]) == [1,3]
 
-const arrayOne = [1, 3, 3, 4, 5, 7];
-const arrayTwo = [1, 2, 2, 4, 6, 7];
+// const arrayOne = [1, 3, 3, 4, 5, 7];
+// const arrayTwo = [1, 2, 2, 4, 6, 7];
 
-const desiredAnswer = [3, 3, 5];
+// const desiredAnswer = [3, 3, 5];
 
 function array_diff(arrA, arrB) {
   arrB.forEach(digit => {
@@ -27,19 +27,19 @@ function array_diff(arrA, arrB) {
 
 // example score:
 
-const data = [
-  { type: 'black', distance: [60, 1] },
-  { type: 'black', distance: [61, 3] },
-  { type: 'red', distance: [61, 3] },
-  { type: 'red', distance: [65, -1] },
-  { type: 'jack', distance: [60, 2] }
-];
+// const data = [
+//   { type: 'black', distance: [60, 1] },
+//   { type: 'black', distance: [61, 3] },
+//   { type: 'red', distance: [61, 3] },
+//   { type: 'red', distance: [65, -1] },
+//   { type: 'jack', distance: [60, 2] }
+// ];
 
-const data2 = [
-  { type: 'black', distance: [70, -1] },
-  { type: 'red', distance: [85, -1] },
-  { type: 'jack', distance: [80, -5] }
-];
+// const data2 = [
+//   { type: 'black', distance: [70, -1] },
+//   { type: 'red', distance: [85, -1] },
+//   { type: 'jack', distance: [80, -5] }
+// ];
 
 // Didn't understand prompt - built for game where best balls cancel eachother out
 function getBocceScore(score) {
@@ -114,3 +114,26 @@ const makeChange = amount => {
 };
 
 // console.log(makeChange(0));
+
+// find which array elements of array1 are in array2
+// https://www.codewars.com/kata/which-are-in/train/javascript
+
+// const a1 = ['live', 'strong', 'arp'];
+// const a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];
+
+function inArray(array1, array2) {
+  const output = [];
+  let alreadyAdded = '';
+  array1.forEach(chunk => {
+    array2.forEach(str => {
+      if (str.includes(chunk) && !alreadyAdded.includes(chunk)) {
+        output.push(chunk);
+        alreadyAdded += chunk;
+      }
+    });
+  });
+  output.sort();
+  return output;
+}
+
+// console.log(inArray(a1, a2));
