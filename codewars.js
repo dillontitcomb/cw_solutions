@@ -87,3 +87,30 @@ function getBocceScore(score) {
 }
 
 // console.log(getBocceScore(data2));
+
+// Make change from <100 cents amount
+// https://www.codewars.com/kata/making-change/train/javascript
+
+const makeChange = amount => {
+  const types = [
+    { type: 'H', value: 50 },
+    { type: 'Q', value: 25 },
+    { type: 'D', value: 10 },
+    { type: 'N', value: 5 },
+    { type: 'P', value: 1 }
+  ];
+  const output = {};
+  const getCoins = coinType => {
+    return Math.floor(amount / coinType);
+  };
+  types.forEach(coin => {
+    let numOfCoin = getCoins(coin.value);
+    if (numOfCoin > 0) {
+      output[coin.type] = numOfCoin;
+      amount -= coin.value * numOfCoin;
+    }
+  });
+  return output;
+};
+
+// console.log(makeChange(0));
