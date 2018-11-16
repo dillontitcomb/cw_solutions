@@ -137,3 +137,25 @@ function inArray(array1, array2) {
 }
 
 // console.log(inArray(a1, a2));
+
+// Reverse every other word in string
+// https://www.codewars.com/kata/reverse-every-other-word-in-the-string/train/javascript
+
+const stringToReverse = "I really don't like reversing strings!";
+
+function reverse(str) {
+  return str
+    .split(' ')
+    .map((word, i) => {
+      if (i % 2 !== 0) {
+        word = word
+          .split('')
+          .reverse()
+          .join('');
+      }
+      return word;
+    })
+    .join(' ');
+}
+
+console.log(reverse(stringToReverse));
