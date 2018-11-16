@@ -141,7 +141,7 @@ function inArray(array1, array2) {
 // Reverse every other word in string
 // https://www.codewars.com/kata/reverse-every-other-word-in-the-string/train/javascript
 
-const stringToReverse = "I really don't like reversing strings!";
+// const stringToReverse = "I really don't like reversing strings!";
 
 function reverse(str) {
   return str
@@ -158,4 +158,124 @@ function reverse(str) {
     .join(' ');
 }
 
-console.log(reverse(stringToReverse));
+// console.log(reverse(stringToReverse));
+
+// https://www.codewars.com/kata/help-mrs-jefferson/train/javascript
+// Help Ms Jefferson: arrange students of any number into fewest groups of consecutive sizes (e.g. 65 = [33,32])
+
+function shortestArrang(n) {
+  if (!(n % 2 === 0)) return [Math.floor(n / 2) + 1, Math.floor(n / 2)];
+  const possibleNums = [];
+  for (let i = 0; i <= Math.floor(n / 2); i++) {
+    possibleNums.push(i);
+  }
+  console.log(possibleNums);
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (possibleNums[i] + possibleNums[i + 1] + possibleNums[i + 2] === n) {
+      return [possibleNums[i + 2], possibleNums[i + 1], possibleNums[i]];
+    }
+  }
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (
+      possibleNums[i] +
+        possibleNums[i + 1] +
+        possibleNums[i + 2] +
+        possibleNums[i + 3] ===
+      n
+    ) {
+      return [
+        possibleNums[i + 3],
+        possibleNums[i + 2],
+        possibleNums[i + 1],
+        possibleNums[i]
+      ];
+    }
+  }
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (
+      possibleNums[i] +
+        possibleNums[i + 1] +
+        possibleNums[i + 2] +
+        possibleNums[i + 3] +
+        possibleNums[i + 4] ===
+      n
+    ) {
+      return [
+        possibleNums[i + 4],
+        possibleNums[i + 3],
+        possibleNums[i + 2],
+        possibleNums[i + 1],
+        possibleNums[i]
+      ];
+    }
+  }
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (
+      possibleNums[i] +
+        possibleNums[i + 1] +
+        possibleNums[i + 2] +
+        possibleNums[i + 3] +
+        possibleNums[i + 4] +
+        possibleNums[i + 5] ===
+      n
+    ) {
+      return [
+        possibleNums[i + 5],
+        possibleNums[i + 4],
+        possibleNums[i + 3],
+        possibleNums[i + 2],
+        possibleNums[i + 1],
+        possibleNums[i]
+      ];
+    }
+  }
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (
+      possibleNums[i] +
+        possibleNums[i + 1] +
+        possibleNums[i + 2] +
+        possibleNums[i + 3] +
+        possibleNums[i + 4] +
+        possibleNums[i + 5] +
+        possibleNums[i + 6] ===
+      n
+    ) {
+      return [
+        possibleNums[i + 6],
+        possibleNums[i + 5],
+        possibleNums[i + 4],
+        possibleNums[i + 3],
+        possibleNums[i + 2],
+        possibleNums[i + 1],
+        possibleNums[i]
+      ];
+    }
+  }
+  for (let i = 0; i < possibleNums.length; i++) {
+    if (
+      possibleNums[i] +
+        possibleNums[i + 1] +
+        possibleNums[i + 2] +
+        possibleNums[i + 3] +
+        possibleNums[i + 4] +
+        possibleNums[i + 5] +
+        possibleNums[i + 6] +
+        possibleNums[i + 7] ===
+      n
+    ) {
+      return [
+        possibleNums[i + 7],
+        possibleNums[i + 6],
+        possibleNums[i + 5],
+        possibleNums[i + 4],
+        possibleNums[i + 3],
+        possibleNums[i + 2],
+        possibleNums[i + 1],
+        possibleNums[i]
+      ];
+    }
+  }
+  return [-1];
+}
+
+console.log(shortestArrang(52));
