@@ -278,4 +278,42 @@ function shortestArrang(n) {
   return [-1];
 }
 
-console.log(shortestArrang(52));
+// console.log(shortestArrang(52));
+
+// https://www.codewars.com/kata/next-bigger-number-with-the-same-digits/train/javascript
+// Make any number the next largest it can possibly be by rearranging digits
+// Mostly complete, need to flatten array.
+
+function nextBigger(n) {
+  const numArray = n
+    .toString()
+    .split('')
+    .map(x => parseInt(x));
+  console.log(numArray);
+  let growingNumber = [numArray[numArray.length - 1]];
+  let shiftingNumber;
+  for (let i = numArray.length - 1; i >= 0; i--) {
+    console.log(growingNumber);
+    if (biggerCheck(numArray[i - 1], growingNumber)) {
+      growingNumber.unshift(numArray[i - 1]);
+      shiftingNumber = numArray[i - 1];
+      break;
+    } else {
+      growingNumber.unshift(numArray[i - 1]);
+    }
+  }
+  shiftingNumber = growingNumber[1];
+  growingNumber[1] = growingNumber[0];
+  growingNumber.shift();
+  let output = growingNumber.map(x => parseInt(x)).sort((a, b) => a - b);
+  output.unshift(parseInt(shiftingNumber));
+  numArray.splice(output.length, numArray.length - output.length, output);
+  console.log(numArray);
+  function biggerCheck(newNum, currentNums) {
+    for (let i = 0; i < currentNums.length; i++) {
+      if (currentNums[i] > newNum) return true;
+    }
+  }
+}
+
+console.log(nextBigger(39897972));
