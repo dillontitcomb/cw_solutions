@@ -316,4 +316,24 @@ function nextBigger(n) {
   }
 }
 
-console.log(nextBigger(39897972));
+// console.log(nextBigger(39897972));
+
+// Return sum of all numbers below target num that are multiples of three or five
+
+function divisibleBy(num, factor) {
+  return num % factor === 0 ? true : false;
+}
+
+function sumOfMultiples(number) {
+  const factorsArray = [];
+  for (let i = 0; i < number; i++) {
+    if (divisibleBy(i, 3) || divisibleBy(i, 5)) factorsArray.push(i);
+  }
+  if (factorsArray.length > 0) {
+    return factorsArray.reduce((acc, curr) => acc + curr);
+  } else {
+    return 0;
+  }
+}
+
+console.log(sumOfMultiples(14));
