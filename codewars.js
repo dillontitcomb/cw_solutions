@@ -336,4 +336,37 @@ function sumOfMultiples(number) {
   }
 }
 
-console.log(sumOfMultiples(14));
+// console.log(sumOfMultiples(14));
+
+// https://www.codewars.com/kata/reverse-or-rotate/train/javascript
+// If a chunk represents an integer such as the sum of the cubes of its digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position.
+
+let example = '12345698765412515623';
+let sz = 6;
+
+function revrot(str, size) {
+  let arr = str.split('');
+  let chunks = [];
+  for (let i = 0; i < str.length; i += size) {
+    let chunk = arr.splice(0, 6);
+    chunks.push(chunk);
+  }
+  let newChunks = [];
+  chunks.forEach(chunk => {
+    let sums = chunk
+      .map(x => Math.pow(parseInt(x), 3))
+      .reduce((prev, curr) => prev + curr);
+    newChunks.push(sums);
+  });
+  let output = [];
+  for (let j = 0; j < newChunks.length; j++) {
+    if (newChunks[j] % 2 === 0) {
+      output.push(chunks[j].reverse().join(''));
+    } else {
+      // rotate
+    }
+  }
+  return output;
+}
+
+console.log(revrot(example, sz));
